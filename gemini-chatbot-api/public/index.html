@@ -3,45 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gemini AI Chatbot</title>
+  <title>Nissan Purwakarta - Service & Sales</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/743/743007.png"/>
 </head>
 <body>
-  <div class="landing-page">
-    <header>
-      <h1>Welcome to Gemini AI Chatbot</h1>
-      <p>Experience the power of AI conversations. Click the chat icon in the bottom right to start chatting!</p>
+
+  <div class="max-w-5xl mx-auto px-4 py-8">
+    <header class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
+      <div class="flex items-center gap-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Nissan_logo.png/320px-Nissan_logo.png" alt="Nissan Logo" class="w-24 h-24 object-contain drop-shadow-lg">
+        <div>
+          <h1 class="text-4xl font-extrabold text-gray-800 mb-2">Nissan Purwakarta</h1>
+          <p class="text-lg text-gray-600">Authorized Dealer & Service Center</p>
+        </div>
+      </div>
+      <div class="flex flex-col items-end">
+        <span class="text-gray-700 font-semibold">Service Advisor:</span>
+        <span class="text-blue-700 font-bold text-lg">0822-1912-0005</span>
+      </div>
     </header>
-    <main>
+    <main class="grid md:grid-cols-2 gap-10 items-center">
       <section>
-        <h2>About</h2>
-        <p>This is a simple chatbot powered by Google Gemini API. Ask anything and get intelligent responses.</p>
-      </section>
-      <section>
-        <h2>Features</h2>
-        <ul>
-          <li>Real-time AI responses</li>
-          <li>Markdown support</li>
-          <li>Multiple chat sessions</li>
-          <li>Persistent storage</li>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+          <svg class="w-7 h-7 text-blue-600 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13l2-2m0 0l7-7 7 7M5 11v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6"/></svg>
+          Welcome!
+        </h2>
+        <p class="mb-4 text-gray-700">We help Nissan owners in Purwakarta and beyond. Use our AI chatbot to describe your car's symptoms and get instant advice before visiting our workshop. We also offer the latest Nissan models for sale!</p>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>AI Car Problem Diagnosis</li>
+          <li class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Book Service & Consultation</li>
+          <li class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Buy New Nissan Cars</li>
         </ul>
+        <a href="tel:082219120005" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-blue-700 transition">Call Service Advisor</a>
+      </section>
+      <section class="flex flex-col items-center">
+        <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=600&q=80" alt="Nissan Car" class="rounded-xl shadow-lg w-full max-w-xs mb-4">
+        <div class="flex gap-4">
+          <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="Car Icon" class="w-12 h-12">
+          <img src="https://cdn-icons-png.flaticon.com/512/1048/1048314.png" alt="Mechanic Icon" class="w-12 h-12">
+        </div>
       </section>
     </main>
+    <footer class="mt-12 text-center text-gray-500 text-sm">
+      &copy; 2026 Nissan Purwakarta. All rights reserved.
+    </footer>
   </div>
 
+
   <!-- Chatbot Widget -->
-  <div id="chatbot-widget" class="chatbot-widget">
-    <div id="chatbot-header" class="chatbot-header">
-      <span>Gemini Chat</span>
-      <button id="close-chatbot">×</button>
+  <div id="chatbot-widget" class="fixed bottom-6 right-6 z-50 w-80 max-w-full rounded-2xl shadow-2xl bg-white border border-blue-200">
+    <div id="chatbot-header" class="flex items-center justify-between bg-blue-600 text-white px-4 py-3 rounded-t-2xl cursor-pointer">
+      <span class="font-bold">Nissan AI Chat</span>
+      <button id="close-chatbot" class="text-2xl leading-none">×</button>
     </div>
-    <div id="chatbot-body" class="chatbot-body" style="display: none;">
-      <div id="sessions-list" class="sessions-list"></div>
-      <button id="new-session">New Chat</button>
-      <div id="chat-box" class="chat-box"></div>
-      <form id="chat-form">
-        <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" required />
-        <button type="submit">Send</button>
+    <div id="chatbot-body" class="p-3" style="display: none;">
+      <div id="sessions-list" class="sessions-list mb-2"></div>
+      <button id="new-session" class="w-full mb-2 py-2 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition">New Chat</button>
+      <div id="chat-box" class="chat-box h-64 overflow-y-auto bg-gray-50 rounded-lg p-2 mb-2 border"></div>
+      <form id="chat-form" class="flex gap-2">
+        <input type="text" id="user-input" placeholder="Describe your car problem..." autocomplete="off" required class="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700 transition">Send</button>
       </form>
     </div>
   </div>
